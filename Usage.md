@@ -1,87 +1,78 @@
-# 📘 How to Use the ChatGPT Governance Suite
+# ChatGPT Governance Suite
 
-> This guide is for **non-technical users**, including founders, consultants, and AI users who want to make ChatGPT behave more intentionally — without learning Git.
-
-You don’t need to install anything. You can **copy-paste** everything from this repo into ChatGPT.
-
----
-
-## 🔧 Step 1: Customize ChatGPT’s Behavior
-
-### 1. Open ChatGPT and go to:
-**Settings → Custom Instructions**
-
-### 2. Under:
-**“What would you like ChatGPT to know about how you'd like it to respond?”**
-
-➡️ Paste the full content from [`trait-instructions.md`](./trait-instructions.md)
-
-This sets the rules for how ChatGPT will:
-- Use memory only when scoped
-- Avoid contamination between projects
-- Challenge you when appropriate
-- Use secure, clean formatting
+> **Version**: v1.1.0  
+> **Status**: Modular Governance Live  
+> **Last Updated**: July 1, 2025
 
 ---
 
-## 📋 Step 2: Use Commands Inside ChatGPT
-
-Once you’ve added the trait instructions, you can type **macros (commands)** in any chat.
-
-### 🆘 Try this first:
-```text
-!help
-```
-That will show a list of all available tools and shortcuts, including:
-- `!reset-scope` – start a fresh, clean conversation
-- `!prompt-guide` – show how to write safe, structured prompts
-- `!exit-project` – lock memory and end the current session
-- `!mode-status` – check whether ChatGPT is in Strict, Flex, or Exploratory Mode
-
-📄 Full list is in [`command-reference.md`](./command-reference.md)
+## Overview
+The **ChatGPT Governance Suite** is a modular system designed to give advanced users complete control over how ChatGPT behaves — across projects, modes, and sessions. This repo replaces hardcoded trait instructions with external, reusable profiles and macros that simulate memory, session toggles, and behavior control.
 
 ---
 
-## 🧠 Step 3: Write Better Prompts (Optional)
-
-If you want smarter responses:
-- Use [`prompt-writing-guide.md`](./prompt-writing-guide.md) to structure your inputs
-
-Example:
-```text
-You are an enterprise strategist.  
-Your task is to summarize this RFP.  
-Your goal is to highlight gaps, risks, and partner fit.
-
-Respond in 3 sections: Gaps, Recommendations, Follow-Up Questions. Use markdown.
-```
+## Key Components
+| Folder            | Purpose                                                                 |
+|------------------|-------------------------------------------------------------------------|
+| `/traits/`        | Modular behavior profiles (strict, creative, founder, etc.)             |
+| `/macros/`        | One-line commands to simulate session toggles and trait switching       |
+| `/memory/`        | Simulated session memory, project anchors, and exit hygiene             |
+| `/dashboard/`     | Live Behavior Dashboard file showing current state (editable)           |
+| `/docs/`          | User onboarding, usage instructions, security guidance                  |
 
 ---
 
-## 🔚 Step 4: End a Session Properly
+## How to Use (Simple Copy/Paste)
 
-When you're done working on a project or conversation thread:
-- Run:
-```text
-!exit-project
-!lock-memory
-```
-This prevents future replies from “remembering” things they shouldn’t.
+### For Most Users (No GitHub Knowledge Needed):
+1. Go to ChatGPT → Settings → Personalization → "Customize ChatGPT"
+2. In **“How should ChatGPT respond?”**, paste content from:
+   - [`traits/trait-default.md`](traits/trait-default.md) — if unsure, start here
+3. Begin your next conversation by typing: `!help`
+4. Use macros to load modes, e.g., `!strict`, `!founder`, `!prompt-guide`
 
-More details: [`session-exit-policy.md`](./session-exit-policy.md)
-
----
-
-## ✅ You’re Now in Control
-This system is designed to give you:
-- Cleaner responses
-- Better prompts
-- Project-level memory (when needed)
-- Total control over how ChatGPT behaves
-
-No Git required. No setup needed.
-Just copy, paste, and type `!help` when you forget something.
+> Full macro list: [`macros/macro-list.md`](macros/macro-list.md)
 
 ---
 
-Need help? Contact [Peter Foley](https://www.linkedin.com/in/peterfoley) or [Altmoz](https://altmoz.com).
+## Memory & Session Hygiene
+
+This suite helps you:
+- Avoid **LLM contamination**
+- Simulate **memory states** with markdown session logs
+- Toggle modes or restrict access to prior memory
+- Define and end project sessions manually (`!exit`, `!commit`, `!reset`)
+
+Use the [Behavior Dashboard](dashboard/behavior-dashboard.md) to track active scope.
+
+---
+
+## GitHub Pages Access
+View as a clean interface:
+👉 [https://altmoz.github.io/chatgpt-governance-suite](https://altmoz.github.io/chatgpt-governance-suite)
+
+---
+
+## Roadmap (Coming Soon)
+- Trait loader UI for GitHub Pages
+- Persona-based governance kits
+- Session history browser (manual memory replay)
+- PKTS/MTP alignment helpers
+
+---
+
+## Quick Start for Power Users
+| Macro         | Result                                                   |
+|---------------|----------------------------------------------------------|
+| `!help`       | Show current behavior macros & mode                      |
+| `!strict`     | Switch to security-focused, factual, precise behavior   |
+| `!creative`   | Enable brainstorming, exploratory prompts               |
+| `!exit`       | End session and prompt memory commitment                |
+| `!reset`      | Flush behavior and return to neutral default            |
+
+---
+
+## License
+MIT. Use freely, fork, adapt.
+
+> Created by [Peter Foley](https://github.com/AltMoz). Inspired by real-world project management across multiple AI threads and tools.
